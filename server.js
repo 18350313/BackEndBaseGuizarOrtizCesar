@@ -1,16 +1,14 @@
 const express = require('express')
-const messagesRouter = require('./routes/messager')
-const usuariosRouter = require('./routes/usuarios')
-const asphalt8Router = require('./routes/asphalt8')
+const largometrajesRouter = require('./routes/largometrajes')
+const suscriptoresRouter = require('./routes/suscriptores')
 const cors = require("cors")
 
 class Server{
     constructor(){
         this.app = express()
         this.paths ={
-            messages:"/api/v1/messages",   
-            usuarios: "/api/v1/usuarios",
-            asphalt8: "/api/v1/asphalt8"
+            largometrajes:"/api/v1/largometrajes",   
+            suscriptores: "/api/v1/suscriptores",
         }
         this.middlewares()
         this.routes()
@@ -20,9 +18,8 @@ class Server{
         //this.app.get('/',(req, res)=>{
             //res.send('Hola mundo')
        // })
-       this.app.use(this.paths.messages, messagesRouter)
-       this.app.use(this.paths.usuarios, usuariosRouter)
-       this.app.use(this.paths.asphalt8, asphalt8Router)
+       this.app.use(this.paths.largometrajes, largometrajesRouter)
+       this.app.use(this.paths.suscriptores, suscriptoresRouter)
     }
 
     middlewares(){
